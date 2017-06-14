@@ -7,7 +7,7 @@ def main():
     servers = os.environ['SERVERS']
     consumer = KafkaConsumer(topic, bootstrap_servers=servers)
     for msg in consumer:
-        print(msg)
+        print(msg.value)
 
 
 if __name__ == '__main__':
