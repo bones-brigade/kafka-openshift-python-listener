@@ -3,8 +3,8 @@ from kafka import KafkaConsumer
 
 
 def main():
-    topic = os.environ['KAFKA_TOPIC']
-    servers = os.environ['KAFKA_SERVERS']
+    topic = os.environ['TOPIC']
+    servers = os.environ['SERVERS']
     consumer = KafkaConsumer(topic, bootstrap_servers=servers)
     for msg in consumer:
         print(msg)
