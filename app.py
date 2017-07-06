@@ -7,7 +7,7 @@ def main():
     servers = os.environ['SERVERS']
     consumer = KafkaConsumer(topic, bootstrap_servers=servers)
     for msg in consumer:
-        print(msg.value)
+        print(str(msg.value, 'utf-8'))
 
 
 if __name__ == '__main__':
