@@ -10,7 +10,7 @@ workflow.
 
 ## quickstart
 
-1. `oc new-app centos/python-27-centos7~https://github.com/elmiko/hacky-squawker.git -e SERVERS={broker} -e TOPIC={topic}`
+1. `oc new-app centos/python-36-centos7~https://github.com/elmiko/hacky-squawker.git -e SERVERS={broker} -e TOPIC={topic}`
 1. `oc logs -f dc/hacky-squawker`
 
 where `{broker}` is the uri for the Kafka broker (eg `my-broker:9092`), and
@@ -23,10 +23,10 @@ in your project, you should use the `--name` option when creating the apps.
 
 for example
 
-1. `oc new-app centos/python-27-centos7~https://github.com/elmiko/hacky-squawker.git -e SERVERS={broker} -e TOPIC={topic} --name=squawker1`
+1. `oc new-app centos/python-36-centos7~https://github.com/elmiko/hacky-squawker.git -e SERVERS={broker} -e TOPIC={topic} --name=squawker1`
 1. `oc logs -f dc/squawker1`
 
 then in another shell
 
-1. `oc new-app centos/python-27-centos7~https://github.com/elmiko/hacky-squawker.git -e SERVERS={broker} -e TOPIC={topic} --name=squawker2`
+1. `oc new-app centos/python-36-centos7~https://github.com/elmiko/hacky-squawker.git -e SERVERS={broker} -e TOPIC={topic} --name=squawker2`
 1. `oc logs -f dc/squawker2`
