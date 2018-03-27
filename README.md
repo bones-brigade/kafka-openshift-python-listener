@@ -11,13 +11,13 @@ workflow.
 
 ```
 oc new-app centos/python-36-centos7~https://github.com/bones-brigade/kafka-openshift-python-listener.git \
-  -e SERVERS={broker} \
-  -e TOPIC={topic} \
+  -e KAFKA_BROKERS=kafka:9092 \
+  -e KAFKA_TOPIC=bones-brigade \
   --name=listener
 ```
 
-Where `{broker}` is the uri for the Kafka broker (eg `my-broker:9092`), and
-`{topic}` is the Kafka topic you would like to monitor.
+You will need to adjust the `KAFKA_BROKERS` and `KAFKA_TOPICS` variables to
+match your configured Kafka deployment and desired topic.
 
 After launching the application, you will most likely want to follow its log
 output to see the messages it has heard.
