@@ -1,7 +1,6 @@
-# hacky-squawker
+# kafka-openshift-python-listener
 
-a cloud world needs a cloud oriented `print` function, this is a simple
-Python application that will listen to an Apache Kafka topic and print
+A simple Python application that will listen to an Apache Kafka topic and print
 messages that arrive on a specified topic.
 
 it is designed for use with the [OpenShift](https://openshift.org)
@@ -10,8 +9,8 @@ workflow.
 
 ## quickstart
 
-1. `oc new-app centos/python-36-centos7~https://github.com/elmiko/hacky-squawker.git -e SERVERS={broker} -e TOPIC={topic}`
-1. `oc logs -f dc/hacky-squawker`
+1. `oc new-app centos/python-36-centos7~https://github.com/bones-brigade/kafka-openshift-python-listener.git -e SERVERS={broker} -e TOPIC={topic} --name=listener`
+1. `oc logs -f dc/listener`
 
 where `{broker}` is the uri for the Kafka broker (eg `my-broker:9092`), and
 `{topic}` is the Kafka topic you would like to monitor.
@@ -23,10 +22,10 @@ in your project, you should use the `--name` option when creating the apps.
 
 for example
 
-1. `oc new-app centos/python-36-centos7~https://github.com/elmiko/hacky-squawker.git -e SERVERS={broker} -e TOPIC={topic} --name=squawker1`
+1. `oc new-app centos/python-36-centos7~https://github.com/bones-brigade/kafka-openshift-python-listener.git -e SERVERS={broker} -e TOPIC={topic} --name=squawker1`
 1. `oc logs -f dc/squawker1`
 
 then in another shell
 
-1. `oc new-app centos/python-36-centos7~https://github.com/elmiko/hacky-squawker.git -e SERVERS={broker} -e TOPIC={topic} --name=squawker2`
+1. `oc new-app centos/python-36-centos7~https://github.com/bones-brigade/kafka-openshift-python-listener.git -e SERVERS={broker} -e TOPIC={topic} --name=squawker2`
 1. `oc logs -f dc/squawker2`
