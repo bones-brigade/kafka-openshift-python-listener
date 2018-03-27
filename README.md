@@ -7,25 +7,21 @@ it is designed for use with the [OpenShift](https://openshift.org)
 [Python source-to-image](https://docs.openshift.org/latest/using_images/s2i_images/python.html)
 workflow.
 
-## quickstart
+## Launching on OpenShift
 
-1. `oc new-app centos/python-36-centos7~https://github.com/bones-brigade/kafka-openshift-python-listener.git -e SERVERS={broker} -e TOPIC={topic} --name=listener`
-1. `oc logs -f dc/listener`
+```
+oc new-app centos/python-36-centos7~https://github.com/bones-brigade/kafka-openshift-python-listener.git \
+  -e SERVERS={broker} \
+  -e TOPIC={topic} \
+  --name=listener
+```
 
-where `{broker}` is the uri for the Kafka broker (eg `my-broker:9092`), and
+Where `{broker}` is the uri for the Kafka broker (eg `my-broker:9092`), and
 `{topic}` is the Kafka topic you would like to monitor.
 
-## advanced stuff
+After launching the application, you will most likely want to follow its log
+output to see the messages it has heard.
 
-if you would like to deploy multiple squawkers to print from different topics
-in your project, you should use the `--name` option when creating the apps.
-
-for example
-
-1. `oc new-app centos/python-36-centos7~https://github.com/bones-brigade/kafka-openshift-python-listener.git -e SERVERS={broker} -e TOPIC={topic} --name=squawker1`
-1. `oc logs -f dc/squawker1`
-
-then in another shell
-
-1. `oc new-app centos/python-36-centos7~https://github.com/bones-brigade/kafka-openshift-python-listener.git -e SERVERS={broker} -e TOPIC={topic} --name=squawker2`
-1. `oc logs -f dc/squawker2`
+```
+oc logs -f dc/listener
+```
