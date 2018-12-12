@@ -19,6 +19,7 @@ def parse_args(parser):
 def main(args):
     consumer = KafkaConsumer(args.topic, bootstrap_servers=args.brokers)
     for msg in consumer:
+        out = msg.value if msg.value is not None else ""
         logging.info('received: ' + str(msg.value, 'utf-8'))
     logging.info('exiting')
 
