@@ -1,4 +1,4 @@
-# kafka-openshift-python-listener
+# kafka-python-listener
 
 A simple Python application that will listen to an Apache Kafka topic and print
 messages that arrive on a specified topic.
@@ -10,7 +10,7 @@ workflow.
 ## Launching on OpenShift
 
 ```
-oc new-app centos/python-36-centos7~https://github.com/bones-brigade/kafka-openshift-python-listener.git \
+oc new-app centos/python-36-centos7~https://gitlab.com/bones-brigade/kafka-python-listener.git \
   -e KAFKA_BROKERS=kafka:9092 \
   -e KAFKA_TOPIC=bones-brigade \
   --name=listener

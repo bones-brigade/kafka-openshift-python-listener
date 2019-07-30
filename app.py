@@ -26,7 +26,7 @@ def main(args):
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
-    logging.info('starting kafka-openshift-python-listener')
+    logging.info('starting kafka-python-listener')
     parser = argparse.ArgumentParser(
             description='listen for some stuff on kafka')
     parser.add_argument(
